@@ -26,8 +26,8 @@ const Main = () => {
           Start Cooking <span>→</span>
         </a>
 
-        <a href="#recipe" className="secondary">
-          Our Recipe
+        <a href="#creations" className="secondary">
+          Recent Creations
         </a>
       </div>
     </section>

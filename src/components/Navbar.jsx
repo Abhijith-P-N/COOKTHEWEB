@@ -14,7 +14,7 @@ function Navbar() {
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="logo">
         <span className="chef"></span>
-        <strong>COOK<span className="brand-accent">THE</span>WEB.<spam className="branddd">in</spam></strong>
+        <strong>COOK<span className="brand-accent">THE</span>WEB.<spam className="branddd"></spam></strong>
         
       </div>
       
@@ -22,7 +22,7 @@ function Navbar() {
       <ul className="nav-links">
         <li><a href="#ingredients">INGREDIENTS</a></li>
         <li><a href="#creations">CREATIONS</a></li>
-        <li><a href="#recipe">RECIPE</a></li>
+        <li><a href="#services">RECIPE</a></li>
         <li><a href="#reviews">REVIEWS</a></li>
       </ul>
 

@@ -1,37 +1,43 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Utensils, Sparkles, Flame, Package, ChevronDown } from "lucide-react";
+import { Target, Sparkles, Code, Rocket, ChevronDown } from "lucide-react";
+
 
 const steps = [
   {
-    title: "Gathering Ingredients",
-    description: "We start by understanding your goals, audience, and technical requirements.",
-    details: "This phase involves deep-dive workshops and auditing your current tech stack. We ensure every requirement is measured and prepped before the 'cooking' begins.",
-    icon: <Utensils size={26} />,
+    title: "Discovery & Strategy",
+    description: "We align business goals, users, and technical direction.",
+    details:
+      "Through stakeholder discussions, research, and audits, we define clear objectives, success metrics, and a scalable technical roadmap.",
+    icon: <Target size={26} />,
     color: "blue",
   },
   {
-    title: "Prepping the Base",
-    description: "Design and prototyping. We wireframe the experience to ensure the journey is intuitive.",
-    details: "We build high-fidelity interactive prototypes. You'll get to see exactly how the product flows and feels before we write a single line of production code.",
+    title: "Design & Experience",
+    description: "Crafting intuitive, conversion-focused user experiences.",
+    details:
+      "We design wireframes and interactive prototypes to validate flows, usability, and visual direction before development begins.",
     icon: <Sparkles size={26} />,
     color: "purple",
   },
   {
-    title: "High-Heat Cooking",
-    description: "Development and testing. We build with precision, performance, and scalability in mind.",
-    details: "Our developers use the latest tech stacks (React, Next.js, Node) to build a robust engine. We test for performance, security, and cross-device compatibility.",
-    icon: <Flame size={26} />,
+    title: "Development & Engineering",
+    description: "Building fast, secure, and scalable systems.",
+    details:
+      "Using modern stacks like React, Next.js, and Node, we engineer high-performance applications with rigorous testing and best practices.",
+    icon: <Code size={26} />,
     color: "orange",
   },
   {
-    title: "Serving the Dish",
-    description: "Launch, monitor, and optimize. Your product is delivered hot and ready to impress.",
-    details: "The launch is just the beginning. We monitor real-user feedback and performance metrics to optimize and scale your digital product for long-term success.",
-    icon: <Package size={26} />,
+    title: "Launch & Growth",
+    description: "Deploy, monitor, and continuously improve.",
+    details:
+      "Post-launch, we track performance, gather insights, and iterate to ensure long-term growth and product success.",
+    icon: <Rocket size={26} />,
     color: "green",
   },
 ];
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -65,8 +71,8 @@ function Recipe() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        <h2>Our Secret Recipe</h2>
-        <p>How we cook up success for your digital vision.</p>
+        <h2>Our Methodology</h2>
+        <p>How we transform ideas into high-impact digital products.</p>
       </motion.div>
 
       <motion.div

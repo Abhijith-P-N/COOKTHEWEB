@@ -47,7 +47,7 @@ function Services() {
   };
 
   return (
-    <section className="services">
+    <section id="services" className="services">
       <div className="services-header">
         <h2>OUR RECIPE</h2>
         <p>What we serve to help your business grow</p>
