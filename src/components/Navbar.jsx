@@ -14,7 +14,7 @@ function Navbar() {
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="logo">
         <span className="chef"></span>
-        <strong>COOK<span className="brand-accent">THE</span>WEB.<spam className="branddd"></spam></strong>
+        <strong>COOK<span className="brand-accent">THE</span>WEB.com<spam className="branddd"></spam></strong>
         
       </div>
       
