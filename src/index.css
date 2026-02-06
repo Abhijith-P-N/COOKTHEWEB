@@ -1868,6 +1868,56 @@ html {
   color: rgb(43, 208, 208);
 }
 
+/* Success & Error States */
+.form-success-state {
+  text-align: center;
+  padding: 60px 40px;
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.success-badge {
+  width: 100px;
+  height: 100px;
+  background: rgba(43, 208, 208, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.text-cyan {
+  color: rgb(43, 208, 208);
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-text {
+  color: #fb7185;
+  font-size: 14px;
+  margin-top: 16px;
+  text-align: center;
+  font-weight: 500;
+}
+
 /* ----------------------------------------------------------- */
 /* FULL RESPONSIVE & COMPACT MOBILE STYLES                     */
 /* ----------------------------------------------------------- */
