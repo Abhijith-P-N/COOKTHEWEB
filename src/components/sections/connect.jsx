@@ -54,7 +54,6 @@ function Connect() {
         >
           <form
             name="contact"
-            method="POST"
             className="main-contact-form"
             netlify>
             <input type="hidden" name="form-name" value="contact" />
