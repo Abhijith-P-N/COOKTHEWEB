@@ -1896,6 +1896,44 @@ html {
   color: rgb(43, 208, 208);
 }
 
+/* Toast Notification */
+.toast-notification {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #111;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  font-weight: 600;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.toast-notification.success {
+  border-left: 6px solid #22c55e;
+}
+
+.toast-notification.error {
+  border-left: 6px solid #ef4444;
+  color: #ef4444;
+}
+
+.toast-notification svg {
+  flex-shrink: 0;
+}
+
+.toast-notification.success svg {
+  color: #22c55e;
+}
+
 .animate-spin {
   animation: spin 1s linear infinite;
 }

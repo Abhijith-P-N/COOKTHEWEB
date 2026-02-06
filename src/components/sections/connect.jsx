@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Rocket,
   Mail,
@@ -6,6 +7,9 @@ import {
   Instagram,
   Github,
   Linkedin,
+  CheckCircle,
+  XCircle,
+  Loader2,
 } from "lucide-react";
 import "../../index.css";
 
@@ -18,23 +22,65 @@ const itemVariants = {
   },
 };
 
+// Netlify-required encoder
+const encode = (data) =>
+  Object.keys(data)
+    .map(
+      (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+    )
+    .join("&");
+
 function Connect() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState({
+    show: false,
+    message: "",
+    type: "success",
+  });
+
+  useEffect(() => {
+    if (toast.show) {
+      const timer = setTimeout(
+        () => setToast((t) => ({ ...t, show: false })),
+        4000
+      );
+      return () => clearTimeout(timer);
+    }
+  }, [toast.show]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     const form = e.target;
-    const formData = new FormData(form);
+    const data = Object.fromEntries(new FormData(form).entries());
 
     fetch("/", {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: encode({
+        "form-name": "contact",
+        ...data,
+      }),
     })
       .then(() => {
-        alert("Message sent successfully 🚀");
+        setToast({
+          show: true,
+          message: "Message sent! I’ll get back to you soon 🚀",
+          type: "success",
+        });
         form.reset();
+        setIsSubmitting(false);
       })
       .catch(() => {
-        alert("Something went wrong ❌");
+        setToast({
+          show: true,
+          message: "Something went wrong. Please try again ❌",
+          type: "error",
+        });
+        setIsSubmitting(false);
       });
   };
 
@@ -79,7 +125,7 @@ function Connect() {
             onSubmit={handleSubmit}
             className="main-contact-form"
           >
-            {/* Required hidden fields */}
+            {/* Netlify required hidden fields */}
             <input type="hidden" name="form-name" value="contact" />
             <input type="hidden" name="bot-field" />
 
@@ -114,15 +160,47 @@ function Connect() {
                 name="details"
                 placeholder="Tell me about your project..."
                 required
-              ></textarea>
+              />
             </div>
 
-            <button type="submit" className="submit-btn">
-              <Mail size={20} />
-              Send Message
-              <ArrowRight size={18} />
+            <button
+              type="submit"
+              className="submit-btn"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 size={20} className="animate-spin" />
+                  Sending…
+                </>
+              ) : (
+                <>
+                  <Mail size={20} />
+                  Send Message
+                  <ArrowRight size={18} />
+                </>
+              )}
             </button>
           </form>
+
+          {/* Toast */}
+          <AnimatePresence>
+            {toast.show && (
+              <motion.div
+                initial={{ opacity: 0, y: 30, x: "-50%" }}
+                animate={{ opacity: 1, y: 0, x: "-50%" }}
+                exit={{ opacity: 0, y: 20, x: "-50%" }}
+                className={`toast-notification ${toast.type}`}
+              >
+                {toast.type === "success" ? (
+                  <CheckCircle size={20} />
+                ) : (
+                  <XCircle size={20} />
+                )}
+                <span>{toast.message}</span>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           <div className="socials-container">
             <p>Or find me on social media</p>
@@ -130,21 +208,15 @@ function Connect() {
               <a
                 href="https://www.instagram.com/cooktheweb"
                 className="social twitter"
-                aria-label="Instagram"
               >
                 <Instagram size={22} />
               </a>
-              <a
-                href="#"
-                className="social github"
-                aria-label="GitHub"
-              >
+              <a href="#" className="social github">
                 <Github size={22} />
               </a>
               <a
                 href="https://www.linkedin.com/in/cooktheweb-undefined-7823163aa/"
                 className="social linkedin"
-                aria-label="LinkedIn"
               >
                 <Linkedin size={22} />
               </a>
