@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   Rocket,
   Mail,
@@ -7,8 +6,6 @@ import {
   Instagram,
   Github,
   Linkedin,
-  CheckCircle,
-  Loader2,
 } from "lucide-react";
 import "../../index.css";
 
@@ -22,11 +19,8 @@ const itemVariants = {
 };
 
 function Connect() {
-  const [status, setStatus] = useState("idle"); // idle, submitting, success, error
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus("submitting");
 
     const form = e.target;
     const formData = new FormData(form);
@@ -36,12 +30,11 @@ function Connect() {
       body: formData,
     })
       .then(() => {
-        setStatus("success");
+        alert("Message sent successfully");
         form.reset();
       })
-      .catch((error) => {
-        console.error(error);
-        setStatus("error");
+      .catch(() => {
+        alert("Something went wrong");
       });
   };
 
@@ -78,108 +71,58 @@ function Connect() {
           viewport={{ once: true }}
           className="connect-form-container"
         >
-          <AnimatePresence mode="wait">
-            {status === "success" ? (
-              <motion.div
-                key="success"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                className="form-success-state"
-              >
-                <div className="success-badge">
-                  <CheckCircle size={48} className="text-cyan" />
-                </div>
-                <h3>Message Sent Successfully!</h3>
-                <p>
-                  Thank you for reaching out. I have received your message and will get back to you shortly.
-                </p>
-                <button
-                  onClick={() => setStatus("idle")}
-                  className="submit-btn"
-                  style={{ marginTop: "24px" }}
-                >
-                  Send Another Message
-                </button>
-              </motion.div>
-            ) : (
-              <motion.form
-                key="form"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                name="contact"
-                method="POST"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={handleSubmit}
-                className="main-contact-form"
-              >
-                {/* Required hidden fields */}
-                <input type="hidden" name="form-name" value="contact" />
-                <input type="hidden" name="bot-field" />
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+            className="main-contact-form"
+          >
+            {/* Required hidden fields */}
+            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
 
-                <div className="form-row">
-                  <div className="form-group">
-                    <label htmlFor="email">Email Address</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
 
-                  <div className="form-group">
-                    <label htmlFor="phone">Phone Number</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      placeholder="Your Phone Number"
-                      required
-                    />
-                  </div>
-                </div>
+              <div className="form-group">
+                <label htmlFor="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Your Phone Number"
+                  required
+                />
+              </div>
+            </div>
 
-                <div className="form-group">
-                  <label htmlFor="details">Project Details</label>
-                  <textarea
-                    id="details"
-                    name="details"
-                    placeholder="Tell me about your project..."
-                    required
-                  ></textarea>
-                </div>
+            <div className="form-group">
+              <label htmlFor="details">Project Details</label>
+              <textarea
+                id="details"
+                name="details"
+                placeholder="Tell me about your project..."
+                required
+              ></textarea>
+            </div>
 
-                <button
-                  type="submit"
-                  className="submit-btn"
-                  disabled={status === "submitting"}
-                >
-                  {status === "submitting" ? (
-                    <>
-                      <Loader2 size={20} className="animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Mail size={20} />
-                      Send Message
-                      <ArrowRight size={18} />
-                    </>
-                  )}
-                </button>
-
-                {status === "error" && (
-                  <p className="error-text">
-                    Oops! Something went wrong. Please try again.
-                  </p>
-                )}
-              </motion.form>
-            )}
-          </AnimatePresence>
+            <button type="submit" className="submit-btn">
+              <Mail size={20} />
+              Send Message
+              <ArrowRight size={18} />
+            </button>
+          </form>
 
           <div className="socials-container">
             <p>Or find me on social media</p>
@@ -191,7 +134,11 @@ function Connect() {
               >
                 <Instagram size={22} />
               </a>
-              <a href="#" className="social github" aria-label="GitHub">
+              <a
+                href="#"
+                className="social github"
+                aria-label="GitHub"
+              >
                 <Github size={22} />
               </a>
               <a
