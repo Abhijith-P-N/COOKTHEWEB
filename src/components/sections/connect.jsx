@@ -30,11 +30,11 @@ function Connect() {
       body: formData,
     })
       .then(() => {
-        alert("Message sent successfully");
+        alert("Message sent successfully 🚀");
         form.reset();
       })
       .catch(() => {
-        alert("Something went wrong");
+        alert("Something went wrong ❌");
       });
   };
 
