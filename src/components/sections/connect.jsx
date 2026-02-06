@@ -50,24 +50,69 @@ function Connect() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="connect-actions"
+          className="connect-form-container"
         >
-          <a href="mailto:info.cooktheweb@gmail.com" className="email-btn">
-            <Mail size={22} />
-            Email Me Directly
-            <ArrowRight size={18} />
-          </a>
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            className="main-contact-form"
+          >
+            <input type="hidden" name="form-name" value="contact" />
 
-          <div className="socials">
-            <a href="#" className="social twitter" aria-label="Twitter">
-              <Instagram size={22} />
-            </a>
-            <a href="#" className="social github" aria-label="GitHub">
-              <Github size={22} />
-            </a>
-            <a href="#" className="social linkedin" aria-label="LinkedIn">
-              <Linkedin size={22} />
-            </a>
+            <div className="form-row">
+              <div className="form-group">
+                <label htmlFor="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Your Phone Number"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="details">Project Details</label>
+              <textarea
+                id="details"
+                name="details"
+                placeholder="Tell me about your project..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" className="submit-btn">
+              <Mail size={20} />
+              Send Message
+              <ArrowRight size={18} />
+            </button>
+          </form>
+
+          <div className="socials-container">
+            <p>Or find me on social media</p>
+            <div className="socials">
+              <a href="https://www.instagram.com/cooktheweb?igsh=Z2ZqZHJocmV0bmh3" className="social twitter" aria-label="Twitter">
+                <Instagram size={22} />
+              </a>
+              <a href="#" className="social github" aria-label="GitHub">
+                <Github size={22} />
+              </a>
+              <a href="https://www.linkedin.com/in/cooktheweb-undefined-7823163aa/" className="social linkedin" aria-label="LinkedIn">
+                <Linkedin size={22} />
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>

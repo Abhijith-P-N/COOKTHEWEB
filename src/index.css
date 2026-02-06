@@ -1718,38 +1718,129 @@ html {
 /* ---------------- CONNECT ---------------- */
 .connect {
   margin: 120px 80px;
-  padding: 120px 40px;
+  padding: 120px 80px;
   border-radius: 64px;
   background: #0f0f0f;
   color: white;
-  text-align: center;
   position: relative;
   overflow: hidden;
 }
 
+.connect-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
 .connect h2 {
-  font-size: 64px;
+  font-size: 56px;
   font-weight: 900;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  line-height: 1.1;
 }
 
-.connect-actions {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-top: 60px;
+.connect p {
+  font-size: 18px;
+  color: #a1a1aa;
+  line-height: 1.6;
 }
 
-.email-btn {
-  background: white;
-  color: black;
-  padding: 20px 40px;
-  border-radius: 32px;
-  text-decoration: none;
-  font-weight: 800;
+.connect-icon {
+  width: 80px;
+  height: 80px;
+  background: #27272a;
+  border-radius: 24px;
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  color: rgb(43, 208, 208);
+}
+
+.main-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #a1a1aa;
+}
+
+.form-group input,
+.form-group textarea {
+  background: #18181b;
+  border: 1px solid #27272a;
+  padding: 16px 20px;
+  border-radius: 16px;
+  color: white;
+  font-family: inherit;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgb(43, 208, 208);
+  background: #27272a;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  background: white;
+  color: black;
+  padding: 18px 32px;
+  border-radius: 18px;
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  background: rgb(43, 208, 208);
+  color: black;
+}
+
+.socials-container {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #27272a;
+}
+
+.socials-container p {
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .socials {
@@ -1758,16 +1849,23 @@ html {
 }
 
 .social {
-  width: 64px;
-  height: 64px;
-  background: #27272a;
-  border-radius: 20px;
+  width: 56px;
+  height: 56px;
+  background: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   text-decoration: none;
   transition: 0.3s;
+}
+
+.social:hover {
+  background: #27272a;
+  transform: translateY(-4px);
+  color: rgb(43, 208, 208);
 }
 
 /* ----------------------------------------------------------- */
@@ -2194,48 +2292,74 @@ html {
 
   /* 8. Connect - Pico-Scale Card */
   .connect {
-    margin: 10px 6px !important;
-    padding: 15px 12px !important;
-    border-radius: 12px !important;
+    margin: 20px 10px !important;
+    padding: 30px 20px !important;
+    border-radius: 24px !important;
+  }
+
+  .connect-content {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    text-align: center !important;
   }
 
   .connect h2 {
-    font-size: 15px !important;
-    margin-bottom: 8px !important;
+    font-size: 28px !important;
+    margin-bottom: 12px !important;
   }
 
   .connect p {
-    font-size: 9px !important;
+    font-size: 14px !important;
   }
 
-  .connect-actions {
-    flex-direction: column !important;
-    gap: 8px !important;
-    margin-top: 15px !important;
+  .connect-icon {
+    width: 60px !important;
+    height: 60px !important;
+    margin: 0 auto 20px !important;
   }
 
-  .email-btn {
-    width: 100% !important;
-    justify-content: center;
-    padding: 10px !important;
-    font-size: 11px !important;
+  .form-row {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .main-contact-form {
+    gap: 16px !important;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    border-radius: 12px !important;
+  }
+
+  .submit-btn {
+    padding: 14px !important;
+    font-size: 14px !important;
+    border-radius: 12px !important;
+  }
+
+  .socials-container {
+    margin-top: 30px !important;
+    padding-top: 20px !important;
   }
 
   .socials {
     width: 100%;
     justify-content: center;
-    gap: 10px !important;
+    gap: 12px !important;
   }
 
   .social {
-    width: 28px !important;
-    height: 28px !important;
-    border-radius: 6px !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
   }
 
   .social svg {
-    width: 14px !important;
-    height: 14px !important;
+    width: 18px !important;
+    height: 18px !important;
   }
 
   /* 9. Floating WhatsApp - Smaller for Mobile */
