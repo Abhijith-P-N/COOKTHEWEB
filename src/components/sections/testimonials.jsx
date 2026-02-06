@@ -5,7 +5,7 @@ import '../../index.css'
 const testimonials = [
   {
     name: "Shazin Sameer",
-    role: "Co-Founder,Oral Fresh ",
+    role: "Co-Founder, Oral Fresh ",
     content:
       "The quality of work is exceptional. My business website is now faster and more engaging than ever. Truly the best website developer I've worked with!",
     image: "https://i.pravatar.cc/150?u=aarav",

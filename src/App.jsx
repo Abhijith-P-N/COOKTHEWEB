@@ -10,20 +10,31 @@ import Testimonials from './components/sections/testimonials';
 import Connect from './components/sections/connect';
 
 
-const App = () => {
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Shop from './components/Shop';
 
+const Home = () => (
+  <>
+    <Navbar />
+    <Main />
+    <Ingredients />
+    <Services />
+    <Projects />
+    <Recipe />
+    <Testimonials />
+    <Connect />
+    <Whatsapp />
+  </>
+);
+
+const App = () => {
   return (
-    <div>
-      <Navbar />
-      <Main />   
-      <Ingredients />
-      <Services />
-      <Projects />
-      <Recipe />
-      <Testimonials />
-      <Connect />
-      <Whatsapp />   
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+      </Routes>
+    </Router>
   )
 }
 
