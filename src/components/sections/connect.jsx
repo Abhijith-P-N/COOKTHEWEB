@@ -7,7 +7,7 @@ import {
   Github,
   Linkedin,
 } from "lucide-react";
-import '../../index.css'
+import "../../index.css";
 
 const itemVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -19,6 +19,25 @@ const itemVariants = {
 };
 
 function Connect() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      body: formData,
+    })
+      .then(() => {
+        alert("Message sent successfully 🚀");
+        form.reset();
+      })
+      .catch(() => {
+        alert("Something went wrong ❌");
+      });
+  };
+
   return (
     <section id="connect" className="connect">
       <div className="connect-glow" />
@@ -56,9 +75,13 @@ function Connect() {
             name="contact"
             method="POST"
             data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
             className="main-contact-form"
           >
+            {/* Required hidden fields */}
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
 
             <div className="form-row">
               <div className="form-group">
@@ -71,6 +94,7 @@ function Connect() {
                   required
                 />
               </div>
+
               <div className="form-group">
                 <label htmlFor="phone">Phone Number</label>
                 <input
@@ -103,13 +127,25 @@ function Connect() {
           <div className="socials-container">
             <p>Or find me on social media</p>
             <div className="socials">
-              <a href="https://www.instagram.com/cooktheweb?igsh=Z2ZqZHJocmV0bmh3" className="social twitter" aria-label="Twitter">
+              <a
+                href="https://www.instagram.com/cooktheweb"
+                className="social twitter"
+                aria-label="Instagram"
+              >
                 <Instagram size={22} />
               </a>
-              <a href="#" className="social github" aria-label="GitHub">
+              <a
+                href="#"
+                className="social github"
+                aria-label="GitHub"
+              >
                 <Github size={22} />
               </a>
-              <a href="https://www.linkedin.com/in/cooktheweb-undefined-7823163aa/" className="social linkedin" aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/in/cooktheweb-undefined-7823163aa/"
+                className="social linkedin"
+                aria-label="LinkedIn"
+              >
                 <Linkedin size={22} />
               </a>
             </div>
