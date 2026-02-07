@@ -1,3 +1,5 @@
+import { title } from "framer-motion/client";
+
 export const shopProjects = [
   {
     id: 1,
@@ -13,4 +15,11 @@ export const shopProjects = [
     path: "/sale/alex/index.html",
     image: "/alex.png" // Placeholder image
   },
+  {
+    id: 3,
+    title: "shoes-Ecommerce",
+    description: "Minimal e-commerce website for Shoe store ",
+    path: "https://cooktheweb-ecommerce-1.netlify.app/",
+    image: "/shoe.png"
+  }
 ];

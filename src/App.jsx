@@ -5,7 +5,7 @@ import Whatsapp from './components/Whatsapp';
 import Ingredients from './components/sections/ingredients'
 import Services from './components/sections/services';
 import Projects from './components/sections/projects';
-import Recipe from './components/sections/recipe';
+import Team from './components/sections/Team';
 import Testimonials from './components/sections/testimonials';
 import Connect from './components/sections/connect';
 
@@ -20,7 +20,7 @@ const Home = () => (
     <Ingredients />
     <Services />
     <Projects />
-    <Recipe />
+    <Team />
     <Testimonials />
     <Connect />
     <Whatsapp />

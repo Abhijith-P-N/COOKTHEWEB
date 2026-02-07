@@ -28,7 +28,7 @@ function Navbar() {
           <li><a href="/#ingredients">INGREDIENTS</a></li>
           <li><Link to="/shop">SHOP</Link></li>
           <li><a href="/#creations">CREATIONS</a></li>
-          <li><a href="/#services">RECIPE</a></li>
+          <li><a href="/#team">TEAM</a></li>
           <li><a href="/#reviews">REVIEWS</a></li>
         </ul>
 
@@ -49,7 +49,7 @@ function Navbar() {
           <li><a href="/#ingredients" onClick={toggleMobileMenu}>INGREDIENTS</a></li>
           <li><Link to="/shop" onClick={toggleMobileMenu}>SHOP</Link></li>
           <li><a href="/#creations" onClick={toggleMobileMenu}>CREATIONS</a></li>
-          <li><a href="/#services" onClick={toggleMobileMenu}>RECIPE</a></li>
+          <li><a href="/#team" onClick={toggleMobileMenu}>TEAM</a></li>
           <li><a href="/#reviews" onClick={toggleMobileMenu}>REVIEWS</a></li>
           <li><a href="#connect" className="mobile-order-btn" onClick={toggleMobileMenu}>ORDER NOW</a></li>
         </ul>

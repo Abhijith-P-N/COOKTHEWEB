@@ -1,42 +1,30 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect } from "react";
 import "../../index.css";
-import hospital from '../../../public/hospital.png';
-import verdent from '../../../public/verdent.png';
-import event from '../../../public/event.png';
-
 const projects = [
   {
     title: "E-Commerce Reimagined",
     category: "Full Stack Web",
-    image:
-      verdent,
-    description:
-      "A premium shopping experience with lightning-fast performance.",
+    image: "/verdent.png",
+    description: "A premium shopping experience with lightning-fast performance.",
   },
   {
     title: "FinTech Dashboard",
     category: "UI/UX Design",
-    image:
-      "https://cdn.dribbble.com/users/1598667/screenshots/15823758/finetech_dashboard_4x.png",
-    description:
-      "Complex data simplified into elegant, actionable insights.",
+    image: "https://cdn.dribbble.com/users/1598667/screenshots/15823758/finetech_dashboard_4x.png",
+    description: "Complex data simplified into elegant, actionable insights.",
   },
   {
     title: "Health & Wellness App",
     category: "Mobile & Web Development",
-    image:
-      hospital,
-    description:
-      "Native-feel cross-platform app for modern healthcare.",
+    image: "/hospital.png",
+    description: "Native-feel cross-platform app for modern healthcare.",
   },
   {
     title: "Event Organiser",
     category: "Web Development",
-    image:
-      event,
-    description:
-      "A modern event booking and organising web app with four roles.",
+    image: "/event.png",
+    description: "A modern event booking and organising web app with four roles.",
   },
 ];
 
