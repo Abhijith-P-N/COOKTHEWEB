@@ -75,26 +75,21 @@ function Services() {
             <p>{service.description}</p>
 
             {/* Expansion Area */}
-            <AnimatePresence>
-              {expandedIndex === index && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="service-details-content"
-                >
-                  <div className="details-divider" />
-                  <p className="extra-info">{service.details}</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {expandedIndex === index && (
+              <div className="service-expansion-box">
+                <div className="details-divider" />
+                <p className="extra-info">{service.details}</p>
+              </div>
+            )}
 
-            <div 
-              className="learn-more" 
-              onClick={() => toggleExpand(index)}
+            <div
+              className="learn-more"
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleExpand(index);
+              }}
             >
-              {expandedIndex === index ? "Show Less" : "Learn More"} 
+              {expandedIndex === index ? "Show Less" : "Learn More"}
               {expandedIndex === index ? <ChevronUp size={16} /> : <ArrowRight size={16} />}
             </div>
           </motion.div>

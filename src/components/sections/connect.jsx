@@ -11,6 +11,7 @@ import {
   XCircle,
   Loader2,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import "../../index.css";
 
 const itemVariants = {
@@ -206,8 +207,16 @@ function Connect() {
             <p>Or find me on social media</p>
             <div className="socials">
               <a
+                href="https://wa.me/917907294980"
+                className="social whatsapp-social"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaWhatsapp size={22} />
+              </a>
+              <a
                 href="https://www.instagram.com/cooktheweb"
-                className="social twitter"
+                className="social instagram"
               >
                 <Instagram size={22} />
               </a>

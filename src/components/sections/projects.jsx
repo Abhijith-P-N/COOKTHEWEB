@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import "../../index.css";
+
 const projects = [
   {
     title: "E-Commerce Reimagined",
@@ -44,6 +45,19 @@ function Projects() {
   const scrollLeft = useRef(0);
   const velocity = useRef(0);
   const raf = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // ⏺ Dot indicators logic
+  const handleScroll = (e) => {
+    const scrollLeft = e.target.scrollLeft;
+    const width = e.target.offsetWidth;
+    // On mobile, card is about 65% width + gap
+    const cardWidth = width * 0.7;
+    const newIndex = Math.round(scrollLeft / cardWidth);
+    if (newIndex !== activeIndex) {
+      setActiveIndex(newIndex);
+    }
+  };
 
   // 🌀 Drag with momentum
   const onMouseDown = (e) => {
@@ -112,6 +126,7 @@ function Projects() {
         onMouseMove={onMouseMove}
         onMouseUp={onMouseUp}
         onMouseLeave={onMouseUp}
+        onScroll={handleScroll}
       >
         {projects.map((project, i) => (
           <motion.div
@@ -133,7 +148,6 @@ function Projects() {
           </motion.div>
         ))}
 
-        {/* VIEW MORE CARD */}
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -141,6 +155,23 @@ function Projects() {
         >
           <div className="view-more-inner">View More</div>
         </motion.div>
+      </div>
+
+      <div className="dot-indicators">
+        {[...projects, { title: "view-more" }].map((_, i) => (
+          <div
+            key={i}
+            className={`dot ${activeIndex === i ? 'active' : ''}`}
+            onClick={() => {
+              const slider = sliderRef.current;
+              const cards = slider.querySelectorAll('.project-card');
+              if (cards[i]) {
+                const targetScroll = cards[i].offsetLeft - (slider.offsetWidth - cards[i].offsetWidth) / 2;
+                slider.scrollTo({ left: targetScroll, behavior: 'smooth' });
+              }
+            }}
+          />
+        ))}
       </div>
     </section>
   );
