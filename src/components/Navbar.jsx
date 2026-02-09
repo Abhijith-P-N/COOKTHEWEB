@@ -50,7 +50,6 @@ function Navbar() {
           <li><Link to="/shop" onClick={toggleMobileMenu}>SHOP</Link></li>
           <li><a href="/#creations" onClick={toggleMobileMenu}>CREATIONS</a></li>
           <li><a href="/#team" onClick={toggleMobileMenu}>TEAM</a></li>
-          <li><a href="/#reviews" onClick={toggleMobileMenu}>REVIEWS</a></li>
           <li><a href="#connect" className="mobile-order-btn" onClick={toggleMobileMenu}>ORDER NOW</a></li>
         </ul>
       </div>

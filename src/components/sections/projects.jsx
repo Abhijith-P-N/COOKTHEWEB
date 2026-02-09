@@ -49,13 +49,16 @@ function Projects() {
 
   // ⏺ Dot indicators logic
   const handleScroll = (e) => {
-    const scrollLeft = e.target.scrollLeft;
-    const width = e.target.offsetWidth;
-    // On mobile, card is about 65% width + gap
-    const cardWidth = width * 0.7;
-    const newIndex = Math.round(scrollLeft / cardWidth);
-    if (newIndex !== activeIndex) {
-      setActiveIndex(newIndex);
+    const slider = e.target;
+    const scrollLeft = slider.scrollLeft;
+    const cards = slider.querySelectorAll('.project-card');
+
+    if (cards.length > 1) {
+      const cardWidth = cards[1].offsetLeft - cards[0].offsetLeft;
+      const newIndex = Math.round(scrollLeft / cardWidth);
+      if (newIndex !== activeIndex && newIndex >= 0 && newIndex < cards.length) {
+        setActiveIndex(newIndex);
+      }
     }
   };
 
@@ -89,22 +92,8 @@ function Projects() {
     raf.current = requestAnimationFrame(momentum);
   };
 
-  // 🔄 Auto scroll (pause on hover)
-  useEffect(() => {
-    const slider = sliderRef.current;
-    let auto = setInterval(() => {
-      slider.scrollBy({ left: slider.offsetWidth / 3, behavior: "smooth" });
-    }, 3500);
+  // 🔄 Auto scroll removed
 
-    slider.addEventListener("mouseenter", () => clearInterval(auto));
-    slider.addEventListener("mouseleave", () => {
-      auto = setInterval(() => {
-        slider.scrollBy({ left: slider.offsetWidth / 3, behavior: "smooth" });
-      }, 3500);
-    });
-
-    return () => clearInterval(auto);
-  }, []);
 
   return (
     <section id="creations" className="projects">
