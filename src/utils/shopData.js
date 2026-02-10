@@ -17,9 +17,23 @@ export const shopProjects = [
   },
   {
     id: 3,
-    title: "shoes-Ecommerce",
+    title: "Shoes-Ecommerce",
     description: "Minimal e-commerce website for Shoe store ",
     path: "https://cooktheweb-ecommerce-1.netlify.app/",
     image: "/shoe.png"
+  },
+  {
+    id: 4,
+    title: "James Portfolio",
+    description: "Personal portfolio design for creative professionals",
+    path: "https://cooktheweb-portfolio-1.netlify.app/",
+    image: "/girl-portfolio.jpeg"
+  },
+  {
+    id: 5,
+    title: "Alex Portfolio-Black",
+    description: "Minimalist personal portfolio design for creative professionals",
+    path: "alex-black-cooktheweb.netlify.app",
+    image: "/alexblack.png"
   }
 ];
