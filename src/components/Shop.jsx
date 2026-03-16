@@ -31,7 +31,7 @@ const Shop = () => {
                             className="shop-card"
                         >
                             <div className="card-image">
-                                <img src={project.image} alt={`${project.title} - Premium Web Solution | COOKTHEWEB Shop`} />
+                                <img src={project.image} alt={`${project.title} - Premium Web Solution | COOKTHEWEB Shop`} loading="lazy" />
                             </div>
                             <div className="card-content">
                                 <h3>{project.title}</h3>

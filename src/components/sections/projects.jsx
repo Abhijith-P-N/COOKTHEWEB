@@ -127,7 +127,7 @@ function Projects() {
             whileHover={{ y: -10 }}
             className="project-card"
           >
-            <img src={project.image} alt={`${project.title} - ${project.category} | COOKTHEWEB`} className="project-img" />
+            <img src={project.image} alt={`${project.title} - ${project.category} | COOKTHEWEB`} className="project-img" loading="lazy" />
             <div className="overlay" />
             <div className="project-content">
               <span className="project-category">{project.category}</span>

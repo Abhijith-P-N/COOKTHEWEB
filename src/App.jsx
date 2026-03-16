@@ -31,7 +31,7 @@ const Home = () => (
 const App = () => {
   return (
     <Router>
-      <Suspense fallback={<div className="loading-spinner">Cooking...</div>}>
+      <Suspense fallback={<div className="loading-spinner"></div>}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />

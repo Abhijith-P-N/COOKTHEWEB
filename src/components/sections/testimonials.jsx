@@ -68,7 +68,7 @@ function Testimonials() {
             whileHover={{ scale: 1.02 }}
           >
             <div className="testimonial-header">
-              <img src={t.image} alt={`${t.name} - ${t.role} | COOKTHEWEB Customer`} className="avatar" />
+              <img src={t.image} alt={`${t.name} - ${t.role} | COOKTHEWEB Customer`} className="avatar" loading="lazy" />
 
               <div className="author">
                 <h4>{t.name}</h4>

@@ -68,7 +68,7 @@ function Team() {
                         variants={itemVariants}
                     >
                         <div className="founder-image-wrapper">
-                            <img src={founder.image} alt={`${founder.name} - ${founder.role} | COOKTHEWEB`} className="founder-image" />
+                             <img src={founder.image} alt={`${founder.name} - ${founder.role} | COOKTHEWEB`} className="founder-image" loading="lazy" />
                             <div className="founder-socials">
                                 <a href={founder.linkedin} target="_blank" rel="noopener noreferrer" className="social-icon"><Linkedin size={20} /></a>
                                 <a href={founder.instagram} target="_blank" rel="noopener noreferrer" className="social-icon"><Instagram size={20} /></a>
