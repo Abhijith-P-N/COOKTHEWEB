@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /cgi-bin/
 
+# Host
+Host: https://cooktheweb.in
+
+# Sitemap
 Sitemap: https://cooktheweb.in/sitemap.xml

@@ -1,17 +1,18 @@
 import React from 'react'
-import Main from './components/sections/main';
 import Navbar from './components/Navbar';
 import Whatsapp from './components/Whatsapp';
-import Ingredients from './components/sections/ingredients'
-import Services from './components/sections/services';
-import Projects from './components/sections/projects';
-import Team from './components/sections/Team';
-import Testimonials from './components/sections/testimonials';
-import Connect from './components/sections/connect';
+const Main = React.lazy(() => import('./components/sections/main'));
+const Ingredients = React.lazy(() => import('./components/sections/ingredients'));
+const Services = React.lazy(() => import('./components/sections/services'));
+const Projects = React.lazy(() => import('./components/sections/projects'));
+const Team = React.lazy(() => import('./components/sections/Team'));
+const Testimonials = React.lazy(() => import('./components/sections/testimonials'));
+const Connect = React.lazy(() => import('./components/sections/connect'));
+const Shop = React.lazy(() => import('./components/Shop'));
 
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Shop from './components/Shop';
+import { Suspense } from 'react';
 
 const Home = () => (
   <>
@@ -30,10 +31,12 @@ const Home = () => (
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop />} />
-      </Routes>
+      <Suspense fallback={<div className="loading-spinner">Cooking...</div>}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+        </Routes>
+      </Suspense>
     </Router>
   )
 }

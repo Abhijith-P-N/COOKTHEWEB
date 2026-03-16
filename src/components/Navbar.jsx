@@ -26,6 +26,7 @@ function Navbar() {
 
         <ul className="nav-links">
           <li><a href="/#ingredients">INGREDIENTS</a></li>
+          <li><a href="/#services">SERVICES</a></li>
           <li><Link to="/shop">SHOP</Link></li>
           <li><a href="/#creations">CREATIONS</a></li>
           <li><a href="/#team">TEAM</a></li>
@@ -47,6 +48,7 @@ function Navbar() {
         </button>
         <ul className="mobile-nav-links">
           <li><a href="/#ingredients" onClick={toggleMobileMenu}>INGREDIENTS</a></li>
+          <li><a href="/#services" onClick={toggleMobileMenu}>SERVICES</a></li>
           <li><Link to="/shop" onClick={toggleMobileMenu}>SHOP</Link></li>
           <li><a href="/#creations" onClick={toggleMobileMenu}>CREATIONS</a></li>
           <li><a href="/#team" onClick={toggleMobileMenu}>TEAM</a></li>

@@ -1,4 +1,4 @@
-import { Globe, Cpu, Code, ArrowRight, ChevronUp } from "lucide-react";
+import { Globe, Cpu, Code, ArrowRight, ChevronUp, Database } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import '../../index.css'
@@ -24,6 +24,13 @@ const services = [
     details: "From wireframes to high-fidelity prototypes, we focus on user behavior to create designs that are as functional as they are beautiful.",
     icon: <Code size={24} />,
     tag: "Modern Design",
+  },
+  {
+    title: "Custom Software",
+    description: "Tailoring unique software solutions to solve complex business challenges and automate workflows.",
+    details: "We build custom ERP, CRM, and SaaS platforms designed to scale as your business grows, using modern tech stacks like Node.js, Python, or Go.",
+    icon: <Database size={24} />,
+    tag: "Scalable Solutions",
   },
 ];
 
