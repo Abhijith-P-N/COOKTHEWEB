@@ -106,7 +106,7 @@ function Connect() {
             {/* Direct Contact Options */}
             <div className="flex flex-col sm:flex-row gap-3.5 sm:gap-5 mt-8 sm:mt-10">
               <a
-                href="mailto:cooktheweb.in@gmail.com"
+                href="mailto:info.cooktheweb@gmail.com"
                 className="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-cyan-500/40 transition-colors group"
               >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400 shrink-0 group-hover:scale-105 transition-transform">
