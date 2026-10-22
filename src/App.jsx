@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Whatsapp from "./components/Whatsapp";
+import FAQBot from "./components/FAQBot";
 import SEO from "./components/SEO";
 
 const Main = React.lazy(() => import("./components/sections/main"));
@@ -19,6 +20,7 @@ const Shop = React.lazy(() => import("./components/Shop"));
 const PrivacyPolicy = React.lazy(() => import("./components/legal/PrivacyPolicy"));
 const CookiePolicy = React.lazy(() => import("./components/legal/CookiePolicy"));
 const TermsOfService = React.lazy(() => import("./components/legal/TermsOfService"));
+const FAQPage = React.lazy(() => import("./components/legal/FAQPage"));
 
 const Home = () => (
   <div className="relative min-h-screen bg-[#f8fafc] text-slate-900 selection:bg-cyan-500 selection:text-white">
@@ -61,7 +63,9 @@ const App = () => {
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/cookies" element={<CookiePolicy />} />
           <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/faq" element={<FAQPage />} />
         </Routes>
+        <FAQBot />
       </Suspense>
     </Router>
   );

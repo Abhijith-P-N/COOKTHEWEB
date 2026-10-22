@@ -102,6 +102,11 @@ function Footer() {
                   Contact
                 </a>
               </li>
+              <li>
+                <Link to="/faq" className="hover:text-cyan-400 transition-colors">
+                  FAQ
+                </Link>
+              </li>
             </ul>
           </div>
 
