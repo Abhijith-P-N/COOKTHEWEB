@@ -117,7 +117,7 @@ function Connect() {
                     Email
                   </span>
                   <span className="text-white font-semibold text-xs sm:text-sm truncate block group-hover:text-cyan-400 transition-colors">
-                    cooktheweb.in@gmail.com
+                    info.cooktheweb@gmail.com
                   </span>
                 </div>
               </a>
@@ -201,8 +201,8 @@ function Connect() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   className={`mt-4 p-4 rounded-xl flex items-center gap-3 text-sm font-medium ${toast.type === "success"
-                      ? "bg-emerald-950/80 text-emerald-300 border border-emerald-800"
-                      : "bg-rose-950/80 text-rose-300 border border-rose-800"
+                    ? "bg-emerald-950/80 text-emerald-300 border border-emerald-800"
+                    : "bg-rose-950/80 text-rose-300 border border-rose-800"
                     }`}
                 >
                   {toast.type === "success" ? (
