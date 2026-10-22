@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Whatsapp from "./components/Whatsapp";
-import FAQBot from "./components/FAQBot";
 import SEO from "./components/SEO";
 
 const Main = React.lazy(() => import("./components/sections/main"));
@@ -65,7 +64,6 @@ const App = () => {
           <Route path="/terms" element={<TermsOfService />} />
           <Route path="/faq" element={<FAQPage />} />
         </Routes>
-        <FAQBot />
       </Suspense>
     </Router>
   );
