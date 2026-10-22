@@ -1,165 +1,103 @@
+import React from "react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-import "../../index.css";
 
-const projects = [
+const projectItems = [
   {
-    title: "E-Commerce Reimagined",
-    category: "Full Stack Web",
-    image: "/verdent.png",
-    description: "A premium shopping experience with lightning-fast performance.",
+    title: "E-commerce Platform",
+    image: "/project_ecommerce.jpg",
+    link: "/shop",
   },
   {
-    title: "FinTech Dashboard",
-    category: "UI/UX Design",
-    image: "https://cdn.dribbble.com/users/1598667/screenshots/15823758/finetech_dashboard_4x.png",
-    description: "Complex data simplified into elegant, actionable insights.",
+    title: "Web Application",
+    image: "/project_webapp.jpg",
+    link: "/shop",
   },
   {
-    title: "Health & Wellness App",
-    category: "Mobile & Web Development",
-    image: "/hospital.png",
-    description: "Native-feel cross-platform app for modern healthcare.",
-  },
-  {
-    title: "Event Organiser",
-    category: "Web Development",
-    image: "/event.png",
-    description: "A modern event booking and organising web app with four roles.",
+    title: "Business Website",
+    image: "/project_business.jpg",
+    link: "/shop",
   },
 ];
 
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
-  },
-};
-
 function Projects() {
-  const sliderRef = useRef(null);
-  const isDown = useRef(false);
-  const startX = useRef(0);
-  const scrollLeft = useRef(0);
-  const velocity = useRef(0);
-  const raf = useRef(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // ⏺ Dot indicators logic
-  const handleScroll = (e) => {
-    const slider = e.target;
-    const scrollLeft = slider.scrollLeft;
-    const cards = slider.querySelectorAll('.project-card');
-
-    if (cards.length > 1) {
-      const cardWidth = cards[1].offsetLeft - cards[0].offsetLeft;
-      const newIndex = Math.round(scrollLeft / cardWidth);
-      if (newIndex !== activeIndex && newIndex >= 0 && newIndex < cards.length) {
-        setActiveIndex(newIndex);
-      }
-    }
-  };
-
-  // 🌀 Drag with momentum
-  const onMouseDown = (e) => {
-    isDown.current = true;
-    startX.current = e.pageX;
-    scrollLeft.current = sliderRef.current.scrollLeft;
-    velocity.current = 0;
-    cancelAnimationFrame(raf.current);
-  };
-
-  const onMouseMove = (e) => {
-    if (!isDown.current) return;
-    const x = e.pageX;
-    const walk = (x - startX.current) * 1.2;
-    const prev = sliderRef.current.scrollLeft;
-    sliderRef.current.scrollLeft = scrollLeft.current - walk;
-    velocity.current = sliderRef.current.scrollLeft - prev;
-  };
-
-  const onMouseUp = () => {
-    isDown.current = false;
-    momentum();
-  };
-
-  const momentum = () => {
-    if (Math.abs(velocity.current) < 0.5) return;
-    sliderRef.current.scrollLeft += velocity.current;
-    velocity.current *= 0.95;
-    raf.current = requestAnimationFrame(momentum);
-  };
-
-  // 🔄 Auto scroll removed
-
-
   return (
-    <section id="creations" className="projects">
-      <motion.div
-        variants={itemVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="projects-header"
-      >
-        <h2>Recent Creations</h2>
-        <p>A selection of premium projects cooked to perfection.</p>
-      </motion.div>
+    <section id="work" className="py-14 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6">
+      {/* Header with Title on Left and Button on Right */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-12">
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-50 border border-cyan-200/80 mb-3 sm:mb-4 shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+            <span className="text-[11px] sm:text-xs font-bold tracking-wider text-cyan-600 uppercase">
+              OUR WORK
+            </span>
+          </div>
 
-      <div
-        className="projects-grid"
-        ref={sliderRef}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
-        onScroll={handleScroll}
-      >
-        {projects.map((project, i) => (
-          <motion.div
-            key={i}
-            variants={itemVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            whileHover={{ y: -10 }}
-            className="project-card"
-          >
-            <img src={project.image} alt={`${project.title} - ${project.category} | COOKTHEWEB`} className="project-img" loading="lazy" />
-            <div className="overlay" />
-            <div className="project-content">
-              <span className="project-category">{project.category}</span>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-            </div>
-          </motion.div>
-        ))}
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-slate-950 tracking-tight">
+            Selected Projects
+          </h2>
 
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="project-card view-more-card"
+          <p className="text-slate-500 mt-2 text-xs sm:text-base">
+            A glimpse of the digital solutions we have built.
+          </p>
+        </div>
+
+        <Link
+          to="/shop"
+          className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white hover:bg-slate-950 hover:text-white hover:border-slate-950 text-slate-800 px-5 sm:px-6 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-200 shadow-xs self-start sm:self-end group"
         >
-          <div className="view-more-inner">View More</div>
-        </motion.div>
+          <span>View All Work</span>
+          <ArrowRight
+            size={15}
+            className="group-hover:translate-x-0.5 transition-transform"
+          />
+        </Link>
       </div>
 
-      <div className="dot-indicators">
-        {[...projects, { title: "view-more" }].map((_, i) => (
-          <div
-            key={i}
-            className={`dot ${activeIndex === i ? 'active' : ''}`}
-            onClick={() => {
-              const slider = sliderRef.current;
-              const cards = slider.querySelectorAll('.project-card');
-              if (cards[i]) {
-                const targetScroll = cards[i].offsetLeft - (slider.offsetWidth - cards[i].offsetWidth) / 2;
-                slider.scrollTo({ left: targetScroll, behavior: 'smooth' });
-              }
+      {/* 3 Project Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
+        {projectItems.map((project, index) => (
+          <motion.div
+            key={project.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.05 }}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.08,
+              ease: [0.16, 1, 0.3, 1],
             }}
-          />
+            className="bg-white rounded-2xl sm:rounded-3xl p-3 pb-4 sm:p-3.5 sm:pb-5 border border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col"
+          >
+            {/* Image Container */}
+            <div className="overflow-hidden rounded-xl sm:rounded-2xl aspect-[4/3] bg-slate-100 mb-3.5 sm:mb-4 relative">
+              <img
+                src={project.image}
+                alt={`${project.title} - Digital Solution by COOKTHEWEB`}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
+                width={600}
+                height={450}
+              />
+            </div>
+
+            {/* Bottom Info Bar */}
+            <div className="flex items-center justify-between px-2 pt-1 mt-auto">
+              <h3 className="font-bold text-slate-900 text-sm sm:text-base md:text-lg group-hover:text-cyan-600 transition-colors">
+                {project.title}
+              </h3>
+
+              <Link
+                to={project.link}
+                aria-label={`View ${project.title}`}
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-50 border border-slate-200/80 flex items-center justify-center text-slate-600 group-hover:bg-slate-950 group-hover:text-white group-hover:border-slate-950 transition-all duration-200 shadow-xs"
+              >
+                <ArrowRight size={15} />
+              </Link>
+            </div>
+          </motion.div>
         ))}
       </div>
     </section>

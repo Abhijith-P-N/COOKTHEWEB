@@ -1,10 +1,8 @@
-import React from 'react'
+import React from "react";
 import { motion } from "framer-motion";
 import Marquee from "react-fast-marquee";
 import { Zap } from "lucide-react";
-import '../../index.css';
 
-// 1. Updated data structure with official URLs
 const technologies = [
   { name: "Next.js", url: "https://nextjs.org" },
   { name: "React", url: "https://react.dev" },
@@ -23,52 +21,31 @@ const technologies = [
   { name: "Docker", url: "https://www.docker.com" },
 ];
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
-
 const Ingredients = () => {
   return (
-    <motion.section
-      id="ingredients"
-      variants={itemVariants}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true }}
-      className="ingredients"
-    >
-      <div className="ingredients-header">
-        <h2>OUR INGREDIENTS</h2>
-        <p>The technologies we cook with every day</p>
-      </div>
+    <section className="py-12 max-w-7xl mx-auto px-6 overflow-hidden">
+      <div className="relative py-4">
+        {/* Soft Left & Right gradient masks for marquee */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#f8fafc] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#f8fafc] to-transparent z-10 pointer-events-none" />
 
-      <div className="ingredients-marquee">
-        <div className="fade-left" />
-        <div className="fade-right" />
-
-        <Marquee speed={50} pauseOnHover gradient={false}>
+        <Marquee speed={40} pauseOnHover gradient={false}>
           {technologies.map((tech, i) => (
-            /* 2. Wrapped content in an anchor tag */
-            <a 
-              key={i} 
-              href={tech.url} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="tech-item"
+            <a
+              key={i}
+              href={tech.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-3.5 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200/80 text-slate-700 hover:text-cyan-600 hover:border-cyan-400 hover:shadow-xs transition-all duration-200 text-sm font-medium"
             >
-              <Zap size={20} className="zap-icon" />
-              {tech.name}
+              <Zap size={15} className="text-cyan-500 fill-cyan-400/20" />
+              <span>{tech.name}</span>
             </a>
           ))}
         </Marquee>
       </div>
-    </motion.section>
-  )
-}
+    </section>
+  );
+};
 
-export default Ingredients
+export default Ingredients;
