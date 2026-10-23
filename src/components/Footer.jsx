@@ -15,8 +15,8 @@ function Footer() {
               className="inline-flex items-center gap-1 text-lg sm:text-xl font-bold tracking-tight text-white"
             >
               <span>COOK</span>
-              <span className="text-cyan-400 font-extrabold">THEWEB</span>
-              <span className="text-white">.in</span>
+              <span className="text-cyan-400 font-extrabold">THE</span>
+              <span className="text-white">WEB.in</span>
             </Link>
 
             <p className="mt-3.5 sm:mt-4 text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">

@@ -31,11 +31,10 @@ function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
             ? "bg-white/80 backdrop-blur-lg shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-b border-slate-200/60 py-3"
             : "bg-transparent py-4 sm:py-5"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
           {/* Brand Text */}
@@ -46,9 +45,9 @@ function Navbar() {
           >
             <span>COOK</span>
             <span className="text-cyan-500 font-extrabold group-hover:text-cyan-600 transition-colors">
-              THEWEB
+              THE
             </span>
-            <span className="text-slate-900">.in</span>
+            <span className="text-slate-900">WEB.in</span>
           </Link>
 
           {/* Floating Bento Pill Menu */}
@@ -85,9 +84,8 @@ function Navbar() {
             </a>
             <Link
               to="/shop"
-              className={`hover:text-cyan-600 transition-colors flex items-center gap-1 ${
-                isShop ? "text-cyan-600 font-semibold" : ""
-              }`}
+              className={`hover:text-cyan-600 transition-colors flex items-center gap-1 ${isShop ? "text-cyan-600 font-semibold" : ""
+                }`}
             >
               <span>Shop</span>
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
